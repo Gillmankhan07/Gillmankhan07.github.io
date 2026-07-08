@@ -3,364 +3,313 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gillman Khan | Software Developer</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+<title>Gillman Khan — Backend & ML Engineer</title>
+<meta name="description" content="Portfolio of Gillman Khan — Computer Science undergraduate specializing in backend development and machine learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
+  :root{
+    --ink:#0B0F1A;
+    --panel:#121729;
+    --panel-2:#171D33;
+    --line:#232A44;
+    --text:#E7E9F2;
+    --muted:#8991AC;
+    --amber:#F5A623;
+    --amber-dim:#8a611a;
+    --green:#34D399;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--ink);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;margin:0;letter-spacing:-0.01em;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+  section{padding:96px 0;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:'';width:18px;height:1px;background:var(--amber);display:inline-block;}
 
-body{
-font-family:'Inter',sans-serif;
-background:#0f172a;
-color:#f1f5f9;
-line-height:1.7;
-overflow-x:hidden;
-}
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(11,15,26,0.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  nav.wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px;}
+  .brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;}
+  .brand span{color:var(--amber);}
+  .navlinks{display:none;gap:32px;font-size:14px;color:var(--muted);}
+  .navlinks a{text-decoration:none;transition:color .2s;}
+  .navlinks a:hover{color:var(--text);}
+  @media(min-width:760px){.navlinks{display:flex;}}
 
-/* BACKGROUND GLOW */
-body::before{
-content:"";
-position:fixed;
-top:-200px;
-left:-200px;
-width:600px;
-height:600px;
-background:radial-gradient(circle,#3b82f6 0%,transparent 70%);
-opacity:0.12;
-z-index:-1;
-}
+  .hero{padding-top:180px;padding-bottom:80px;display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center;}
+  @media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:150px;text-align:left;}}
+  .avatar{width:132px;height:132px;border-radius:50%;object-fit:cover;border:2px solid var(--line);}
+  .hero h1{font-size:clamp(30px,5vw,50px);line-height:1.1;font-weight:700;}
+  .hero h1 .accent{color:var(--amber);}
+  .hero p.lead{color:var(--muted);font-size:16.5px;max-width:520px;margin-top:16px;}
+  .cta-row{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap;}
+  .btn{padding:12px 22px;border-radius:9px;font-size:14px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease, background .15s ease;}
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--amber);color:#1a1204;}
+  .btn-primary:hover{background:#ffb63d;}
+  .btn-ghost{border:1px solid var(--line);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--amber);}
 
-/* NAVBAR */
-.navbar{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 80px;
-background:rgba(15,23,42,0.85);
-backdrop-filter:blur(10px);
-border-bottom:1px solid #1e293b;
-z-index:1000;
-}
+  /* HIGHLIGHTS */
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
+  .stat-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px;text-align:center;}
+  .stat-num{font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:var(--amber);}
+  .stat-sub{color:var(--muted);font-size:12.5px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.06em;margin-top:6px;}
 
-.navbar a{
-text-decoration:none;
-color:#cbd5e1;
-margin-left:25px;
-font-weight:500;
-transition:0.3s;
-}
+  .sec-head{margin-bottom:44px;}
+  .sec-head h2{font-size:clamp(26px,3vw,34px);}
 
-.navbar a:hover{
-color:#3b82f6;
-}
+  /* PROJECTS */
+  .project-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:36px;margin-bottom:28px;}
+  .project-top{margin-bottom:20px;}
+  .project-title{font-size:22px;font-weight:700;}
+  .project-meta{color:var(--muted);font-size:13.5px;margin-top:6px;font-family:'JetBrains Mono',monospace;}
+  .project-body{display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:center;}
+  @media(max-width:760px){.project-body{grid-template-columns:1fr;}}
+  .project-card ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px;display:grid;gap:10px;}
+  .project-card ul li::marker{color:var(--amber);}
+  .tech-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  .chip{background:var(--panel-2);border:1px solid var(--line);padding:6px 12px;border-radius:100px;font-size:13px;color:var(--text);}
+  .stat-box{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:24px;text-align:center;}
+  .stat-box .stat-num{font-size:30px;}
+  .project-small{padding:30px;}
 
-/* HERO */
-header{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:120px 80px;
-max-width:1200px;
-margin:auto;
-gap:40px;
-}
+  /* SYSTEM DESIGN */
+  .pipeline{display:flex;flex-wrap:wrap;gap:0;align-items:stretch;margin-bottom:36px;}
+  .pipe-step{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;flex:1;min-width:140px;text-align:center;}
+  .pipe-step h4{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--amber);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+  .pipe-step p{margin:0;font-size:13px;color:var(--muted);}
+  .pipe-arrow{display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:18px;padding:0 8px;}
+  @media(max-width:760px){.pipeline{flex-direction:column;} .pipe-arrow{transform:rotate(90deg);padding:6px 0;}}
+  .role-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;}
+  .role-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;}
+  .role-card h4{font-size:14.5px;margin-bottom:6px;}
+  .role-card p{margin:0;color:var(--muted);font-size:13.5px;}
 
-.hero-left{
-flex:1;
-}
+  /* PHILOSOPHY */
+  .philosophy p{color:var(--muted);font-size:16px;max-width:680px;}
+  .philosophy p + p{margin-top:16px;}
 
-.hero-right{
-flex:1;
-text-align:right;
-}
+  /* CERT */
+  .cert-row{display:flex;align-items:center;gap:18px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px 26px;margin-top:20px;}
+  .cert-badge{width:52px;height:52px;border-radius:10px;background:var(--panel-2);display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--amber-dim);}
+  .cert-title{font-weight:600;font-size:15.5px;}
+  .cert-sub{color:var(--muted);font-size:13.5px;margin-top:2px;}
 
-.hero-right img{
-width:260px;
-border-radius:20px;
-box-shadow:0 25px 60px rgba(0,0,0,0.4);
-}
+  footer{border-top:1px solid var(--line);padding:64px 0 40px;}
+  .contact-grid{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:28px;}
+  .contact-grid h2{font-size:clamp(26px,4vw,40px);max-width:520px;}
+  .contact-links{display:flex;flex-direction:column;gap:10px;align-items:flex-end;}
+  @media(max-width:600px){.contact-links{align-items:flex-start;}}
+  .contact-links a{text-decoration:none;color:var(--text);font-size:15px;display:flex;align-items:center;gap:8px;}
+  .contact-links a:hover{color:var(--amber);}
+  .foot-bottom{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--muted);font-size:12.5px;flex-wrap:wrap;gap:10px;}
 
-header h1{
-font-size:3.3rem;
-margin-bottom:20px;
-}
-
-.highlight{
-color:#3b82f6;
-}
-
-header p{
-font-size:1.15rem;
-color:#cbd5e1;
-margin-bottom:30px;
-max-width:650px;
-}
-
-.resume-actions{
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.btn{
-padding:12px 24px;
-border-radius:12px;
-text-decoration:none;
-font-weight:500;
-transition:0.3s;
-}
-
-.primary{
-background:#3b82f6;
-color:white;
-}
-
-.primary:hover{
-transform:translateY(-3px);
-box-shadow:0 10px 30px rgba(59,130,246,0.4);
-}
-
-.secondary{
-border:1px solid #3b82f6;
-color:#3b82f6;
-}
-
-.secondary:hover{
-background:#3b82f6;
-color:white;
-}
-
-/* SECTIONS */
-section{
-padding:120px 80px;
-max-width:1100px;
-margin:auto;
-opacity:0;
-transform:translateY(40px);
-transition:0.8s ease;
-}
-
-section.show{
-opacity:1;
-transform:translateY(0);
-}
-
-h2{
-font-size:2rem;
-margin-bottom:40px;
-}
-
-/* METRICS */
-.metrics{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-text-align:center;
-}
-
-.metric-box{
-background:#1e293b;
-padding:40px;
-border-radius:20px;
-border:1px solid #334155;
-transition:0.3s;
-}
-
-.metric-box:hover{
-transform:translateY(-8px);
-box-shadow:0 30px 60px rgba(0,0,0,0.5);
-}
-
-.metric-number{
-font-size:2.4rem;
-font-weight:700;
-color:#3b82f6;
-margin-bottom:10px;
-}
-
-/* PROJECTS */
-.project{
-background:#1e293b;
-padding:35px;
-border-radius:20px;
-border:1px solid #334155;
-margin-bottom:30px;
-transition:0.3s;
-}
-
-.project:hover{
-transform:translateY(-10px);
-box-shadow:0 30px 70px rgba(0,0,0,0.5);
-}
-
-.metric{
-color:#3b82f6;
-font-weight:600;
-margin-top:10px;
-}
-
-/* FOOTER */
-footer{
-text-align:center;
-padding:60px;
-border-top:1px solid #1e293b;
-color:#94a3b8;
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-header{
-flex-direction:column;
-text-align:center;
-}
-.hero-right{
-text-align:center;
-}
-}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.show{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;}}
 </style>
 </head>
-
 <body>
 
-<div class="navbar">
-<strong>Gillman Khan</strong>
-<div>
-<a href="#metrics">Highlights</a>
-<a href="#projects">Projects</a>
-<a href="#system-design">System Design</a>
-<a href="#about">Philosophy</a>
-<a href="#contact">Contact</a>
-</div>
-</div>
-
 <header>
-<div class="hero-left">
-<h1>
-Backend Developer building <span class="highlight">scalable systems</span>.
-</h1>
-
-<p>
-Software Developer with 200+ DSA problems solved.
-Focused on algorithmic efficiency, modular backend architecture,
-and production-ready system design thinking.
-</p>
-
-<div class="resume-actions">
-<a href="resume.pdf" target="_blank" class="btn primary">View Resume</a>
-<a href="resume.pdf" download class="btn secondary">Download Resume</a>
-</div>
-</div>
-
-<div class="hero-right">
-<img src="profile.jpg" alt="Profile Photo">
-</div>
+  <nav class="wrap">
+    <div class="brand">GILLMAN <span>KHAN</span></div>
+    <div class="navlinks">
+      <a href="#highlights">Highlights</a>
+      <a href="#projects">Projects</a>
+      <a href="#system-design">System Design</a>
+      <a href="#philosophy">Philosophy</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="mailto:gillmankhanimmortal@gmail.com" class="btn btn-ghost" style="padding:8px 16px;font-size:13px;">Get in touch</a>
+  </nav>
 </header>
 
-<section id="metrics">
-<h2>Impact Highlights</h2>
+<main>
+  <!-- HERO -->
+  <section class="hero wrap">
+    <img src="profile.jpg" alt="Gillman Khan" class="avatar">
+    <div>
+      <div class="eyebrow">Backend &amp; Machine Learning</div>
+      <h1>Building systems that <span class="accent">score, decide, and explain.</span></h1>
+      <p class="lead">Computer Science undergraduate focused on backend development and machine learning — currently learning through hands-on team projects, including a real-time fraud risk scoring system.</p>
+      <div class="cta-row">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Download Resume</a>
+      </div>
+    </div>
+  </section>
 
-<div class="metrics">
-<div class="metric-box">
-<div class="metric-number">200+</div>
-DSA Problems Solved
-</div>
+  <!-- HIGHLIGHTS -->
+  <section id="highlights" class="wrap reveal">
+    <div class="sec-head">
+      <div class="eyebrow">Highlights</div>
+      <h2>Where things stand</h2>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num">2</div>
+        <div class="stat-sub">Real Projects Built</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">5</div>
+        <div class="stat-sub">Person Team (Fraud Detection)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">61%</div>
+        <div class="stat-sub">False Positives Reduced</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">AZ-900</div>
+        <div class="stat-sub">Microsoft Certified, 2026</div>
+      </div>
+    </div>
+  </section>
 
-<div class="metric-box">
-<div class="metric-number">30%</div>
-Optimization Improvement
-</div>
+  <!-- PROJECTS -->
+  <section id="projects" class="wrap reveal">
+    <div class="sec-head">
+      <div class="eyebrow">Projects</div>
+      <h2>Selected work</h2>
+    </div>
 
-<div class="metric-box">
-<div class="metric-number">3+</div>
-Backend Projects
-</div>
-</div>
-</section>
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-title">AI-Powered Digital Fraud Detection System</div>
+        <div class="project-meta">Academic Team Project · 5 members · Guided by faculty</div>
+      </div>
+      <div class="project-body">
+        <div>
+          <ul>
+            <li>Collaborated with a 5-member team to design and prototype a real-time AI/ML system for detecting fraud in digital payment transactions (UPI, card, online banking).</li>
+            <li>Contributed to backend development using FastAPI with PostgreSQL and Redis, supporting a pipeline that computes 40+ engineered features per transaction for risk scoring.</li>
+            <li>Helped integrate an ensemble of ML models (XGBoost, LightGBM, Isolation Forest, Autoencoder) to generate a calibrated 0–100 fraud risk score per transaction, targeting sub-100ms scoring latency.</li>
+            <li>Improved backend query performance by ~30% through PostgreSQL/Redis query optimization as part of the team's backend work.</li>
+            <li>Contributed to a 3-tier decision framework (auto-approve / MFA step-up / block-and-escalate); validated behavior through manual functional testing of API endpoints and model outputs.</li>
+          </ul>
+          <div class="tech-row">
+            <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">XGBoost</span><span class="chip">LightGBM</span><span class="chip">PyTorch</span><span class="chip">React.js</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Docker</span>
+          </div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">0–100</div>
+          <div class="stat-sub">Calibrated Risk Score</div>
+          <div style="height:16px;"></div>
+          <div class="stat-num" style="color:var(--green);font-size:26px;">61%</div>
+          <div class="stat-sub">Fewer False Positives</div>
+        </div>
+      </div>
+    </div>
 
-<section id="projects">
-<h2>Selected Projects</h2>
+    <div class="project-card project-small">
+      <div class="project-top">
+        <div class="project-title">Restaurant Web Application</div>
+        <div class="project-meta">Solo Project</div>
+      </div>
+      <ul>
+        <li>Built a responsive restaurant menu browsing website independently, structuring HTML/CSS/JavaScript into modular, reusable components for maintainability.</li>
+        <li>Designed a clean, mobile-friendly layout that adapts across screen sizes, focusing on readability and ease of navigation for menu items.</li>
+      </ul>
+      <div class="tech-row">
+        <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span>
+      </div>
+    </div>
+  </section>
 
-<div class="project">
-<h3>Digital Fraud Detection System</h3>
-<p>
-Implemented rule-based fraud detection using optimized HashMap and Set structures,
-reducing lookup complexity from O(n²) to O(n).
-</p>
-<div class="metric">Focus: Algorithm optimization & scalable backend logic</div>
-</div>
+  <!-- SYSTEM DESIGN -->
+  <section id="system-design" class="wrap reveal">
+    <div class="sec-head">
+      <div class="eyebrow">System Design</div>
+      <h2>How the fraud detection pipeline works</h2>
+    </div>
 
-<div class="project">
-<h3>Restaurant Web Application</h3>
-<p>
-Built maintainable UI architecture emphasizing modular structure and responsiveness.
-</p>
-<div class="metric">Focus: Clean design & maintainable structure</div>
-</div>
+    <div class="pipeline">
+      <div class="pipe-step"><h4>Ingest</h4><p>Transactions &amp; API events</p></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step"><h4>Feature Eng.</h4><p>40+ signals computed</p></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step"><h4>AI Models</h4><p>ML ensemble scoring</p></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step"><h4>Risk Score</h4><p>0–100 calibrated</p></div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step"><h4>Action</h4><p>Approve / MFA / Block</p></div>
+    </div>
 
-</section>
+    <div class="role-grid">
+      <div class="role-card">
+        <h4>End User</h4>
+        <p>Sends a transaction into the system.</p>
+      </div>
+      <div class="role-card">
+        <h4>Risk Engine</h4>
+        <p>Scores the transaction and decides the action.</p>
+      </div>
+      <div class="role-card">
+        <h4>Analyst</h4>
+        <p>Reviews transactions flagged as high-risk.</p>
+      </div>
+      <div class="role-card">
+        <h4>Feedback Loop</h4>
+        <p>Analyst labels feed back into model retraining and drift detection.</p>
+      </div>
+    </div>
 
-<section id="system-design">
-<h2>System Design & Architecture Thinking</h2>
+    <div class="cert-row">
+      <div class="cert-badge">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#F5A623" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M2 17L12 22L22 17" stroke="#F5A623" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="#F5A623" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="cert-title">Microsoft Certified: Azure Fundamentals (AZ-900)</div>
+        <div class="cert-sub">Microsoft · 2026</div>
+      </div>
+    </div>
+  </section>
 
-<div class="project">
-<h3>Scalable Fraud Detection Architecture</h3>
-<p>
-Structured backend into validation, rule-engine, and logging layers.
-Optimized rule matching using HashMap indexing and modular pipeline design.
-</p>
-<div class="metric">Design Focus: Layered architecture & O(n) optimization</div>
-</div>
+  <!-- PHILOSOPHY -->
+  <section id="philosophy" class="wrap reveal philosophy">
+    <div class="sec-head">
+      <div class="eyebrow">Philosophy</div>
+      <h2>How I think about building</h2>
+    </div>
+    <p>I'm early in my engineering path, and I try to treat that honestly: I'm learning by building real things with real teams, not by claiming experience I don't have yet. On the fraud detection project, that meant focusing on the parts I could actually own — backend endpoints, query performance, and validating that the ML integration behaved as expected — rather than overstating my role on a five-person effort.</p>
+    <p>I care about systems being explainable as much as accurate. A risk score means nothing to an analyst if they can't see why it was assigned — that's part of what drew me to a project that paired ML scoring with human-readable reasoning.</p>
+  </section>
+</main>
 
-<div class="project">
-<h3>Backend Flow Structure</h3>
-<p>
-Client → API Layer → Validation Layer → Business Logic → Database → Response
-</p>
-<div class="metric">Design Focus: Separation of concerns & scalability planning</div>
-</div>
-
-</section>
-
-<section id="about">
-<h2>Engineering Philosophy</h2>
-<p>
-I prioritize clarity over complexity, optimize algorithms before scaling infrastructure,
-and design systems with modular architecture to ensure maintainability and scalability.
-</p>
-</section>
-
-<section id="contact">
-<h2>Contact</h2>
-<p>Email: gillmankhanimmortal@gmail.com</p>
-<p>GitHub: github.com/Gillmankhan07</p>
-<p>LinkedIn: linkedin.com/in/gillman-khan-24783829b</p>
-</section>
-
-<footer>
-© 2026 Gillman Khan — Software Developer
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-grid reveal">
+      <h2>Let's build<br>something together.</h2>
+      <div class="contact-links">
+        <a href="mailto:gillmankhanimmortal@gmail.com">gillmankhanimmortal@gmail.com</a>
+        <a href="tel:+919123486363">+91 91234 86363</a>
+        <a href="https://www.linkedin.com/in/gillmankhan-24783829b" target="_blank" rel="noopener">LinkedIn Profile ↗</a>
+        <a href="https://github.com/Gillmankhan07" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="foot-bottom wrap" style="padding-left:0;padding-right:0;">
+      <span>© 2026 Gillman Khan</span>
+      <span class="mono">Built with HTML · CSS · JS</span>
+    </div>
+  </div>
 </footer>
 
 <script>
-const sections = document.querySelectorAll("section");
-
-window.addEventListener("scroll", () => {
-sections.forEach(sec => {
-const top = sec.getBoundingClientRect().top;
-if(top < window.innerHeight - 100){
-sec.classList.add("show");
-}
-});
-});
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); } });
+  },{threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 
 </body>
